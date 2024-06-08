@@ -24,5 +24,8 @@ initDb _url = do
   pure $ Db
     { save       = Save.Db { saveMessage = insertDb db }
     , getMessage = GetMessage.Db { getMessage = lookupDb db }
-    , listTag    = ListTag.Db { listTag = lookupByTag db }
+    , listTag    = ListTag.Db
+                      { listTag = lookupByTag db
+                      , validTag = const $ pure True
+                      }
     }

@@ -14,7 +14,8 @@ data Env = Env
   }
 
 data Db = Db
-  { listTag :: Tag -> IO [Message]
+  { listTag  :: Tag -> IO [Message]
+  , validTag :: Tag -> IO Bool
   }
 
 -----------------------------------------
